@@ -336,7 +336,11 @@
 		  if(Array.isArray(perColumnsHeaders)) {
 			  xlsData += "<tr>";
 			  for (let pchKey in perColumnsHeaders) {
-				  xlsData += "<th>" + perColumnsHeaders[pchKey] + "</th>";
+				  if(perColumnsHeaders[pchKey].colspan){
+						xlsData += "<th colspan="+ perColumnsHeaders[pchKey].colspan +">" + perColumnsHeaders[pchKey].title + "</th>";
+					}else{
+						xlsData += "<th>" + perColumnsHeaders[pchKey] + "</th>";
+					}
 			  }
 			  xlsData += "</tr>";
 		  }

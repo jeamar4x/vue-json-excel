@@ -169,7 +169,11 @@ export default {
       if(Array.isArray(perColumnsHeaders)) {
           xlsData += "<tr>";
           for (let pchKey in perColumnsHeaders) {
+            if(perColumnsHeaders[pchKey].colspan){
+              xlsData += "<th colspan="+ perColumnsHeaders[pchKey].colspan +">" + perColumnsHeaders[pchKey].title + "</th>";
+            }else{
               xlsData += "<th>" + perColumnsHeaders[pchKey] + "</th>";
+            }
           }
           xlsData += "</tr>";
       }
